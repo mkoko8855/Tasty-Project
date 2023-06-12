@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.midterm.foodSNS.reply.mapper.IReplyMapper">
+
+	<sql id="num">
+		<if test="bno != 0">
+			(bno, reply, user_id, user_nick,file_loca,file_name,upload_path,file_real_name)
+			VALUES(#{bno}, #{reply}, #{userId}, #{userNick},#{fileLoca},#{fileName},#{uploadPath},#{fileRealName})
+		</if>
+		<if test="faNum != 0">
+			(faNum, reply, user_id, user_nick,file_loca,file_name,upload_path,file_real_name)
+			VALUES(#{faNum}, #{reply}, #{userId}, #{userNick},#{fileLoca},#{fileName},#{uploadPath},#{fileRealName})
+		</if>
+		<if test="cooknum != 0">
+			(cooknum, reply, user_id, user_nick,file_loca,file_name,upload_path,file_real_name)
+			VALUES(#{cooknum}, #{reply}, #{userId}, #{userNick},#{fileLoca},#{fileName},#{uploadPath},#{fileRealName})
+		</if>
+	</sql>
+	
+
+	<insert id="replyRegist">
+		INSERT INTO reply
+		<include refid="num" />
+	</insert>
+	
+	<select id="getList" resultType="reply">
+		SELECT * FROM reply
+		WHERE cooknum = #{cooknum}
+		ORDER BY rno DESC
+		LIMIT #{paging.pageStart}, #{paging.cpp}
+	</select>
+	
+	<select id="getTotal" resultType="int">
+		SELECT COUNT(*)
+		FROM reply
+		WHERE cooknum = #{cooknum}
+	</select>
+	
+	<update id="update">
+		UPDATE reply
+		SET reply = #{reply}, update_date = current_timestamp
+		WHERE rno = #{rno}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM reply
+		WHERE rno = #{rno}
+	</delete>
+	
+	<select id="faList" resultType="reply">
+		SELECT * FROM reply
+		WHERE faNum = #{faNum}
+		ORDER BY rno DESC
+		LIMIT #{paging.pageStart}, #{paging.cpp}
+	</select>
+	
+	<select id="faTotal" resultType="int">
+		SELECT COUNT(*)
+		FROM reply
+		WHERE faNum = #{faNum}
+	</select>
+	
+	<select id="bnoList" resultType="reply">
+		SELECT * FROM reply
+		WHERE bno = #{bno}
+		ORDER BY rno DESC
+		LIMIT #{paging.pageStart}, #{paging.cpp}
+	</select>
+
+	<select id="bnoTotal" resultType="int">
+		SELECT COUNT(*)
+		FROM reply
+		WHERE bno = #{bno}
+	</select>
+
+</mapper>

@@ -1,0 +1,636 @@
+@charset "UTF-8";
+
+/* linkone */
+.link-1 div:before, .link-1 div:after {
+	content: '';
+	border-bottom: solid 1px white;
+	position: absolute;
+	bottom: 0;
+	width: 0;
+}
+
+.link-1 div:before {
+	left: 0;
+}
+
+.link-1 div:after {
+	right: 0;
+}
+
+.link-1 div:hover:before, .link-1 div:hover:after {
+	width: 50%;
+}
+
+.link-1 div:before, .link-1 div:after {
+	-webkit-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+}
+
+footer {
+	box-sizing: border-box;
+	width: 100vw;
+	height: 5vh;
+	/* footer의 높이 */
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	text-align: center;
+	line-height: 5vh;
+	background: black;
+	color: white;
+}
+
+#main-con {
+	box-sizing: border-box;
+	width: 100%;
+	height: 85vh;
+	margin-top: 80px;
+	display: flex;
+	flex-direction: row;
+}
+
+#main-left {
+	box-sizing: border-box;
+	width: 25%;
+	height: 85vh;
+	border-right: 1px solid gainsboro;
+	padding: 20px;
+	padding-top: 40px;
+	position: relative;
+}
+
+.left {
+	width: 100%;
+	box-sizing: border-box;
+	text-align: right;
+	font-size: 40px;
+	margin-bottom: 20px;
+	box-sizing: border-box;
+}
+
+#main {
+	box-sizing: border-box;
+	width: 50%;
+	height: 85vh;
+	display: flex;
+	flex-wrap: wrap;
+	overflow: scroll;
+	justify-content: space-evenly;
+}
+
+#main::-webkit-scrollbar {
+	display: none; /* 크롬, 사파리, 오페라, 엣지 */
+}
+.reply-nick{
+	height: 1px;
+}
+#main-right {
+	box-sizing: border-box;
+	width: 25%;
+	height: 85vh;
+	border-left: 1px solid gainsboro;
+}
+
+.boxbox {
+	box-sizing: border-box;
+	color: red;
+	width: 32%;
+	height: 25vh;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 30px;
+}
+
+.boxbox2 {
+	box-sizing: border-box;
+	color: black;
+	width: 32%;
+	height: 25vh;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 30px;
+	border: 1px solid black;
+}
+
+.boxbox img {
+	width: 100%;
+	border-radius: 30px;
+	height: 25vh;
+}
+
+.boxbox2 img {
+	width: 100%;
+	border-radius: 30px;
+	height: 20vh;
+}
+
+.scale {
+	transform: scale(1);
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-ms-transform: scale(1);
+	-o-transform: scale(1);
+	transition: all 0.3s ease-in-out; /* 부드러운 모션을 위해 추가*/
+}
+
+.scale:hover {
+	transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	-o-transform: scale(1.1);
+	z-index: 999;
+}
+
+aside {
+	width: 100%;
+	height: 93vh;
+	box-sizing: border-box;
+	border-radius: 20px;
+	border: 1px solid green;
+}
+
+.offcanvas-header {
+	padding-top: 30px;
+}
+
+#logo {
+	box-sizing: border-box;
+	width: 100%;
+	height: 10vh;
+	/* border: 1px solid green; */
+}
+
+#profile-img-con {
+	box-sizing: border-box;
+	width: 100%;
+	height: 20vh;
+	/* border: 1px solid red; */
+	line-height: 20vh;
+	position: relative;
+}
+
+#profile-img {
+	box-sizing: border-box;
+	width: 190px;
+	height: 190px;
+	border-radius: 50%;
+	position: absolute;
+	top: 17%;
+	left: 17%;
+}
+
+.profileWrapper {
+	box-sizing: border-box;
+	width: 100%;
+	height: 60vh;
+	/* border: 1px solid red; */
+	padding: 40px;
+	padding-left: 60px;
+	position: relative;
+	font-size: 1.6vw;
+}
+
+#promodify {
+	width: 70px;
+	height: 30px;
+	font-size: 15px;
+	text-align: center;
+	line-height: 30px;
+	text-decoration: none;
+	cursor: pointer;
+	border-radius: 5px;
+	box-sizing: border-box;
+	position: absolute;
+	top: 55px;
+	left: 210px;
+	
+	background: #157637;
+	color: white;
+	
+	
+}
+
+#follow {
+	width: 100px;
+	height: 30px;
+	font-size: 15px;
+	text-align: center;
+	line-height: 20px;
+	color: white;
+	text-decoration: none;
+	cursor: pointer;
+	border : 0px solid black;
+	background: darkgreen;
+	box-sizing: border-box;
+	position: absolute;
+	top: 55px;
+	left: 200px;
+	cursor: pointer;
+} 
+
+h5 {
+	color: darkgrey;
+}
+
+
+* {
+	 font-family: 'Gowun Dodum', sans-serif;
+}
+
+
+
+
+.modal-body {
+	box-sizing: border-box;
+	width: 100%;
+	height: 900px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.modal-img {
+	box-sizing: border-box;
+	width: 65%;
+	height: 850px;
+	display: flex;
+	/*위에서 아래로 수직 배치*/
+	flex-direction: column;
+	/*중앙정렬*/
+	justify-content: center;
+}
+
+.modal-text {
+	box-sizing: border-box;
+	width: 30%;
+	height: 850px;
+	border-radius: 30px;
+	margin-left: 3%;
+}
+
+#profile-img2 {
+	box-sizing: border-box;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	margin-top: 10px;
+	margin-left: 20px;
+	padding: 10px;
+}
+
+#freeuserimg {
+	display: flex;
+	width: 100%;
+	height: 100px;
+	/* border-bottom: 1px solid gainsboro; */
+}
+
+#freeuserid {
+	padding-top: 35px;
+	width: 55%;
+	font-size: 30px;
+}
+
+#freecontent {
+	width: 100%;
+	box-sizing: border-box;
+	width: 100%;
+	height: 350px;
+	padding: 20px;
+	border: 1px solid gainsboro;
+}
+
+.modibox {
+	display: none;
+}
+
+.modibox textarea {
+	width: 100%;
+	box-sizing: border-box;
+	border-radius: 30px;
+	height: 30vh;
+	padding: 20px;
+	resize: none;
+	margin-bottom: 10px;
+}
+
+.simg {
+	height: 800px;
+}
+
+#dbtn {
+	width: 20%;
+	padding-top: 38px;
+}
+
+.modibox button {
+	width: 100%;
+}
+
+.likeBox {
+	width: 100%;
+	height: 60px;
+	border-bottom: 1px solid gainsboro;
+	padding: 10px;
+	display: flex;
+	justify-content: space-between;
+}
+
+#likenum {
+	height: 40px;
+	line-height: 40px;
+}
+
+.replyBox {
+	width: 100%;
+	height: 300px;
+	/* border: 1px solid red; */
+	overflow: scroll;
+}
+
+.replyBox::-webkit-scrollbar {
+	display: none; /* 크롬, 사파리, 오페라, 엣지 */
+}
+
+ #unfollow {
+	width: 100px;
+	height: 30px;
+	font-size: 15px;
+	text-align: center;
+	line-height: 20px;
+	color: darkgreen;
+	text-decoration: none;
+	cursor: pointer;
+	border : 0px solid black;
+	background: gainsboro;
+	box-sizing: border-box;
+	position: absolute;
+	top: 55px;
+	left: 200px;
+	cursor: pointer;
+} 
+
+#followerM {
+	box-sizing: border-box;
+	width: 100%;
+	height: 400px;
+	border-top: 1px solid gainsboro;
+}
+
+#followingM {
+	box-sizing: border-box;
+	width: 100%;
+	height: 400px;
+	border-top: 1px solid gainsboro;
+}
+
+#followerdiv {
+	width: 100%;
+	height: 50px;
+	border-bottom: 1px solid grey;
+	padding-top: 10px;
+	padding-left: 15px;
+}
+
+#followerdiv img {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	margin-right: 10px;
+}
+
+#followerdiv a {
+	color: black;
+}
+
+#followerdiv span {
+	color: gainsboro;
+}
+
+#urTitle {
+	width: 100%;
+	height: 10vh;
+	border-bottom: 1px solid gainsboro;
+	font-size: 30px;
+	line-height: 10vh;
+	padding-left: 20px;
+}
+
+#urWeather {
+	width: 100%;
+	height: 5vh;
+	border-bottom: 1px solid gainsboro;
+	font-size: 20px;
+	line-height: 5vh;
+	padding-left: 20px;
+	text-align: left;
+}
+
+#urContent {
+	width: 100%;
+	padding: 30px;
+	font-size: 20px;
+}
+
+#rtitle {
+	text-align: center;
+	color: black;
+}
+
+#rcon {
+	display: none;
+}
+
+#userRecipe {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#dbtnR {
+	position: absolute;
+	top: 6%;
+	left: 92%;
+}
+
+#random {
+	width: 23vw;
+	height: 45vh;
+	
+	border-radius: 15px;
+
+	position: absolute;
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+	top: 27%;
+    right: 4%;
+}
+	
+
+
+#randomImg{
+	
+
+	width: 90%;
+	margin-left: 5%;
+	height: 20vh;
+	border-radius: 15px;
+}
+
+#ranCom {
+	width: 20vw;
+	height: 10vh;
+	font-size: 20px;
+	text-align: center;
+	font-family: 800;
+	line-height: 10vh;
+}
+
+.strong {
+	font-size: 30px;
+}
+
+#ranCondition {
+	margin-top: 20px;
+	font-size: 15px;
+	text-align: center;
+	width: 100%;
+	padding: 10px;
+}
+
+.reply-image {
+	box-sizing: border-box;
+	padding: 5px;
+	/* border: 1px solid skyblue; */
+	border-radius: 20px;
+}
+
+#replyImg {
+	width: 4vw;
+	height: 5vh;
+	border-radius: 50%;
+}
+
+.reply-image img {
+	width: 2vw;
+	height: 5vh;
+	border-radius: 50%;
+}
+
+.reply-group {
+	box-sizing: border-box;
+	padding: 5px;
+	font-size: 15px;
+}
+
+.reply-group img {
+	width: 4vw;
+	height: 5vh;
+	border-radius: 50%;
+}
+
+.reply-group strong {
+	font-size: 15px;
+}
+
+.reply-group small {
+	font-size: 15px;
+}
+
+#rebox {
+	width: 100%;
+	margin-right: 0px;
+	margin: 0 auto;
+}
+
+#reply {
+	width: 100%;
+}
+
+#rrr {
+	width: 100%;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+#aaa {
+	padding: 3%;
+}
+
+#replyRegist {
+	width: 100%;
+	background: #157637;
+	color: white;
+	border-color: #157637;
+}
+
+.clearfix {
+	box-sizing: border-box;
+	margin-bottom: 0px;
+	font-size: 20px;
+	padding-left: 15%;
+	border-bottom: 1px solid gainsboro;
+	padding-bottom: 10px;
+}
+
+
+#hiddenMan{
+	height: 1px;
+	display: hidden;
+}
+
+
+/* 좋아요 하트 stryle */
+.heart {
+	width: 100px;
+	height: 100px;
+	background:
+		url("https://cssanimation.rocks/images/posts/steps/heart.png")
+		no-repeat;
+	background-position: 0 0;
+	cursor: pointer;
+	transition: background-position 1s steps(28);
+	transition-duration: 0s;
+}
+
+.heart.is-active {
+	transition-duration: 1s;
+	background-position: -2800px 0; 
+}
+
+.placement {
+ 	position: absolute;
+	top: 50%;
+	right: 1%;
+/*	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%); */
+} 
+
+#userRecipe{
+	display: block;
+}
+
+a{
+	text-decoration:  none;
+}
+
+#shoVid{
+	box-sizing: border-box;
+	width: 100%;
+	height: 80vh;
+	text-align: left;
+	padding: 10px;
+
+
+}
+
+#shortIntro{
+	box-sizing: border-box;
+	width: 100%;
+	height: 5vh;
+	padding: 10px;
+	font-size: 20px;
+	line-height: 5vh;
+	border-bottom: 1px solid gainsboro;
+	text-align: center;
+}
