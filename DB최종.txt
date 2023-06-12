@@ -1,0 +1,142 @@
+
+CREATE TABLE Musers(
+    user_number INT PRIMARY KEY AUTO_INCREMENT,
+    user_id varchar(50) unique ,
+    user_pw varchar(500),
+    user_name varchar(50), 
+    user_nick varchar(50),
+    user_phone1 varchar(50),
+    user_phone2 varchar(50),
+    user_email1 varchar(50),
+    user_email2 varchar(50),
+    addr_basic varchar(300),
+    addr_detail varchar(300),
+    addr_zip_num varchar(50),
+	upload_path varchar(100) ,
+    file_loca varchar(100) ,
+    file_name varchar(50) ,
+    file_real_name varchar(50) ,  
+    message varchar(5000),
+    reg_date datetime default current_timestamp
+);
+
+CREATE TABLE FreeboardImg(
+	freeboard_img_number INT PRIMARY KEY AUTO_INCREMENT,
+    freeboard_article_number int,
+    foreign key (freeboard_article_number) references FreeboardArticle(freeboard_article_number) on delete cascade,
+    upload_path varchar(100) ,
+    file_loca varchar(100) ,
+    file_name varchar(50) ,
+    file_real_name varchar(50) ,  
+    reg_date datetime default current_timestamp
+);
+
+create table FreeboardArticle(
+	freeboard_article_number  INT PRIMARY KEY AUTO_INCREMENT,
+    user_id varchar(50),
+    foreign key (user_id) references Musers(user_id) on delete cascade,
+    content varchar(5000)
+);
+
+create table cookDB(
+	cooknum INT PRIMARY KEY AUTO_INCREMENT,
+	foodname varchar(50),
+    titleimg varchar(100),
+    ingredient varchar(2000),
+    tip varchar(2000),
+    text1 text(2000),
+    text2 text(2000),
+    text3 text(2000),
+    text4 text(2000),
+	img1 varchar(2000),
+    img2 varchar(2000),
+    img3 varchar(2000),
+    img4 varchar(2000),
+    
+    weather varchar(30),
+    condition2 varchar(30),
+    feeling varchar(30)
+);
+
+create table follower(
+	user_id varchar(50) ,
+    foreign key (user_id) references Musers(user_id) on delete cascade,
+    follower_id varchar(50),
+    foreign key (user_id) references Musers(user_id) on delete cascade
+
+); 
+
+create table following2(
+	user_id varchar(50) ,
+    foreign key (user_id) references Musers(user_id) on delete cascade,
+    following_id varchar(50),
+    foreign key (user_id) references Musers(user_id) on delete cascade
+
+); 
+
+
+CREATE TABLE likeDB (
+	likenum INT PRIMARY KEY AUTO_INCREMENT,
+    cooknum INT, 
+    FOREIGN KEY (cooknum) REFERENCES cookDB (cooknum) ON DELETE CASCADE,
+    faNum INT, 
+    FOREIGN KEY (faNum) REFERENCES FreeboardArticle (freeboard_article_number) ON DELETE CASCADE,
+    bno int,
+    FOREIGN KEY (bno) REFERENCES mfreeboard (bno) ON DELETE CASCADE,
+    user_id VARCHAR(50),
+    FOREIGN KEY (user_id) REFERENCES Musers (user_id) ON DELETE CASCADE
+);
+
+CREATE TABLE reply (
+    rno INT PRIMARY KEY AUTO_INCREMENT,
+    cooknum INT,
+    FOREIGN KEY (cooknum)
+        REFERENCES cookdb (cooknum)
+        ON DELETE CASCADE,
+	faNum int,
+    foreign key (faNum)
+		references freeboardarticle (freeboard_article_number)
+        on delete cascade,
+	bno int,
+    foreign key (bno)
+		references Mfreeboard (bno)
+        on delete cascade,
+    reply VARCHAR(1000),
+    user_id VARCHAR(50),
+    foreign key (user_id)
+		references Musers (user_id)
+        on delete cascade,
+	user_nick varchar(50),
+    reply_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    update_date DATETIME DEFAULT NULL,
+    
+    upload_path varchar(100) ,
+    file_loca varchar(100) ,
+    file_name varchar(50) ,
+    file_real_name varchar(50) 
+    
+    
+);
+
+create table video(
+ vno INT PRIMARY KEY AUTO_INCREMENT,
+ user_id varchar(50) ,
+    foreign key (user_id) references Musers(user_id) on delete cascade,
+  upload_path varchar(100) ,
+    file_loca varchar(100) ,
+    file_name varchar(50) ,
+    file_real_name varchar(50) 
+);
+
+create table Mfreeboard (
+    bno INT primary key auto_increment,
+    title varchar(300) NOT null,
+    writer varchar(50),
+    foreign key (writer) references musers (user_id) on delete cascade,
+    content longtext,
+    reg_date datetime default current_timestamp,
+    update_date datetime default Null,
+    weather varchar(50),
+    condition2 varchar(50),
+    feeling varchar(50)
+	);
